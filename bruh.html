@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>My EPIC Website!!! (NOW EVEN MORE EPIC!!!)</title>
+  <title>My EPIC Website!!! (NOW EVEN MORE EPIC AND ACTUALLY WORKS!!!)</title>
   <style>
     body {
       background-color: #00ffff; /* blinding cyan */
@@ -11,6 +11,8 @@
       text-align: center;
       cursor: url('https://i.imgur.com/gK2T3vQ.cur'), auto; /* custom cursor, if it works lol */
       overflow-x: hidden; /* no horizontal scroll, but the content will be wild */
+      margin: 0; /* remove default body margin */
+      padding: 0; /* remove default body padding */
     }
     marquee {
       font-size: 30px;
@@ -18,6 +20,7 @@
       font-weight: bold;
       text-shadow: 3px 3px #ff00ff; /* ugly shadow */
       margin: 10px 0;
+      display: block; /* ensure marquee takes full width */
     }
     h1 {
       font-size: 60px;
@@ -25,6 +28,7 @@
       text-decoration: underline wavy #ff00ff; /* wavy underline */
       -webkit-text-stroke: 2px blue; /* blue outline */
       animation: blink 0.5s infinite alternate; /* faster blink */
+      margin: 20px 0; /* add some margin */
     }
     @keyframes blink {
       0% { opacity: 1; }
@@ -62,6 +66,7 @@
       justify-content: center;
       gap: 5px;
       margin-top: 20px;
+      margin-bottom: 20px;
     }
     .gif-container img {
       border: 3px solid #ff00ff; /* magenta border */
@@ -76,6 +81,7 @@
       padding: 5px 10px;
       display: inline-block;
       margin-top: 20px;
+      margin-bottom: 20px;
     }
     /* Custom blink effect for <blink> tag, because it's deprecated but we need it */
     blink {
@@ -119,12 +125,41 @@
       font-size: 14px;
       text-align: right;
     }
+    .content-wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        width: 100%;
+        max-width: 1200px; /* constrain max width */
+        margin: 0 auto;
+        padding: 20px;
+        box-sizing: border-box; /* include padding in width */
+    }
+    .main-content {
+        flex-grow: 1;
+        max-width: calc(100% - 340px); /* adjust for sidebars */
+    }
+    @media (max-width: 768px) {
+        .sidebar, .right-sidebar {
+            float: none;
+            width: 90%;
+            margin: 10px auto;
+            text-align: center;
+        }
+        .main-content {
+            max-width: 100%;
+        }
+        .content-wrapper {
+            flex-direction: column;
+            align-items: center;
+        }
+    }
   </style>
-  <!-- MIDI MUSIC ALERT! -->
-  <audio autoplay loop>
+  <!-- MIDI MUSIC ALERT! (COMMENTED OUT TO AVOID VERCEl 404s) -->
+  <!-- <audio autoplay loop>
     <source src="https://www.midifiles.com/midi/pop/spice-girls/wannabe.mid" type="audio/midi" onerror="this.onerror=null;this.src='https://www.midifiles.com/midi/pop/rick-astley/never-gonna-give-you-up.mid';">
     Your browser does not support the audio element.
-  </audio>
+  </audio> -->
 </head>
 <body>
   <marquee behavior="alternate" direction="right" scrollamount="15">✨ YOU FOUND THE SECRET PAGE!!! ✨</marquee>
@@ -137,114 +172,118 @@
   </h1>
 
   <div class="gif-container">
-    <img src="https://i.imgur.com/oHg5SJY.gif" alt="dancing baby" width="120">
-    <img src="https://i.imgur.com/h5T2J82.gif" alt="under construction" width="120">
-    <img src="https://i.imgur.com/e7q0d4j.gif" alt="flaming text" width="120">
-    <img src="https://i.imgur.com/h5T2J82.gif" alt="under construction" width="120">
-    <img src="https://i.imgur.com/oHg5SJY.gif" alt="dancing baby" width="120">
-    <img src="https://i.imgur.com/g1f1d1g.gif" alt="email me" width="120">
-    <img src="https://i.imgur.com/d2a3d2a.gif" alt="best viewed with" width="120">
+    <img src="https://placehold.co/120x120/FF00FF/000000?text=DANCING+BABY" alt="dancing baby placeholder" width="120">
+    <img src="https://placehold.co/120x120/00FF00/000000?text=UNDER+CONSTRUCTION" alt="under construction placeholder" width="120">
+    <img src="https://placehold.co/120x120/FFFF00/FF00FF?text=FLAMING+TEXT" alt="flaming text placeholder" width="120">
+    <img src="https://placehold.co/120x120/00FF00/000000?text=UNDER+CONSTRUCTION" alt="under construction placeholder" width="120">
+    <img src="https://placehold.co/120x120/FF00FF/000000?text=DANCING+BABY" alt="dancing baby placeholder" width="120">
+    <img src="https://placehold.co/120x120/0000FF/FFFFFF?text=EMAIL+ME" alt="email me placeholder" width="120">
+    <img src="https://placehold.co/120x120/FF0000/FFFFFF?text=BEST+VIEWED" alt="best viewed with placeholder" width="120">
   </div>
 
-  <div class="sidebar">
-    <p><b>LINKS!</b></p>
-    <ul>
-      <li><a href="#">My GeoCities Page</a></li>
-      <li><a href="#">Free MIDI Files!</a></li>
-      <li><a href="#">Cool Webrings!</a></li>
-      <li><a href="#">More GIFs!</a></li>
-    </ul>
-    <img src="https://placehold.co/100x50/00FF00/000000?text=AD+HERE" alt="ad banner" style="margin-top: 10px;">
-  </div>
+  <div class="content-wrapper">
+    <div class="sidebar">
+      <p><b>LINKS!</b></p>
+      <ul>
+        <li><a href="#">My GeoCities Page</a></li>
+        <li><a href="#">Free MIDI Files! (jk, maybe not)</a></li>
+        <li><a href="#">Cool Webrings!</a></li>
+        <li><a href="#">More GIFs! (reliable ones now)</a></li>
+      </ul>
+      <img src="https://placehold.co/100x50/00FF00/000000?text=AD+HERE" alt="ad banner" style="margin-top: 10px;">
+    </div>
 
-  <div class="right-sidebar">
-    <p><b>UPDATES!</b></p>
-    <p>07/07/2025: Added more blinky things!</p>
-    <p>06/20/2000: Site launched! WOW!</p>
-    <img src="https://placehold.co/100x50/FF0000/FFFFFF?text=YOUR+AD" alt="ad banner" style="margin-top: 10px;">
-  </div>
+    <div class="main-content">
+      <table>
+        <tr>
+          <td style="background-color: #ffcc00;">
+            <img src="https://placehold.co/150x150/000000/FFFFFF?text=COOL+PIC" alt="placeholder image" width="150" style="border: 7px dotted red;">
+            <br>
+            <b><span style="color: #0000ff;">My Super Cool Section!</span></b><br>
+            <a href="#" style="font-size: 25px;">CLICK HERE FOR FUN!</a>
+            <p style="font-size: 16px; color: #000;">
+              <blink>DON'T MISS OUT!</blink> This is where the magic happens, maybe.
+            </p>
+          </td>
+          <td style="background-color: #99ff99;">
+            <marquee behavior="slide" direction="down" scrollamount="3">
+              <span style="font-size: 16px; color: #333;">Check out my blog!!!</span><br>
+              <a href="#" style="font-family: 'Times New Roman', serif; color: #ff00ff;">Click here!!!</a>
+            </marquee>
+            <p style="font-size: 18px; color: #000080;">
+              <span class="glitter-text">OMG! So much info!</span>
+              <br>
+              Like, subscribe, and hit that bell icon! (jk, this isn't YouTube)
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2" style="background-color: #ff99ff;">
+            <blink>
+              <span style="font-size: 30px; color: #000000;">
+                🚧 SITE UNDER HEAVY CONSTRUCTION 🚧<br>
+                COME BACK LATER!!! (LIKE, MAYBE NEXT YEAR?)
+              </span>
+            </blink>
+            <br>
+            <img src="https://placehold.co/80x80/00FF00/000000?text=CONST" alt="under construction placeholder" width="80">
+            <img src="https://placehold.co/80x80/00FF00/000000?text=CONST" alt="under construction placeholder" width="80">
+            <img src="https://placehold.co/80x80/00FF00/000000?text=CONST" alt="under construction placeholder" width="80">
+            <p style="font-size: 24px; color: #ff00ff; font-weight: bold;">
+              <marquee behavior="alternate" scrollamount="8">
+                <span style="color: #00ff00;">STILL BROKEN!</span> <span style="color: #ffff00;">SORRY NOT SORRY!</span>
+              </marquee>
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td style="background-color: #ffff99;">
+            <p style="font-family: 'Arial Black', sans-serif; font-size: 18px; color: #008000;">
+              <span style="background-color: #ff0000; padding: 5px;">
+                <blink>NEW!!!</blink> SIGN MY GUESTBOOK!
+              </span>
+            </p>
+            <a href="#">✍️ Sign Here! ✍️</a>
+            <p style="font-size: 14px; color: #333;">
+              (No spam, pls. Or do, whatever. I'm not your mom.)
+            </p>
+          </td>
+          <td style="background-color: #99ffff;">
+            <p style="font-family: 'Verdana', sans-serif; font-size: 16px; color: #3333ff;">
+              <span style="background-color: #ff00ff; padding: 3px;">
+                BEST VIEWED WITH INTERNET EXPLORER 6!
+              </span>
+            </p>
+            <img src="https://placehold.co/80x80/0000FF/FFFFFF?text=IE6" alt="IE6 logo" style="border: 2px solid black;">
+            <p style="font-size: 12px; color: #000;">
+              (If you're using anything else, your aura is probably negative rizz.)
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2" style="background-color: #ffccff;">
+            <p style="font-size: 20px; color: #ff0000; font-weight: bold;">
+              <blink>
+                <span style="font-size: 28px; color: #0000ff;">
+                  FREE STUFF!!!
+                </span>
+              </blink>
+              <br>
+              (Coming Soon! Probably never, lol.)
+            </p>
+            <img src="https://placehold.co/100x100/FF00FF/FFFFFF?text=FREE!" alt="free stuff gif" style="border: 5px dashed yellow;">
+          </td>
+        </tr>
+      </table>
+    </div>
 
-  <table>
-    <tr>
-      <td style="background-color: #ffcc00;">
-        <img src="https://placehold.co/150x150/000000/FFFFFF?text=COOL+PIC" alt="placeholder image" width="150" style="border: 7px dotted red;">
-        <br>
-        <b><span style="color: #0000ff;">My Super Cool Section!</span></b><br>
-        <a href="#" style="font-size: 25px;">CLICK HERE FOR FUN!</a>
-        <p style="font-size: 16px; color: #000;">
-          <blink>DON'T MISS OUT!</blink> This is where the magic happens, maybe.
-        </p>
-      </td>
-      <td style="background-color: #99ff99;">
-        <marquee behavior="slide" direction="down" scrollamount="3">
-          <span style="font-size: 16px; color: #333;">Check out my blog!!!</span><br>
-          <a href="#" style="font-family: 'Times New Roman', serif; color: #ff00ff;">Click here!!!</a>
-        </marquee>
-        <p style="font-size: 18px; color: #000080;">
-          <span class="glitter-text">OMG! So much info!</span>
-          <br>
-          Like, subscribe, and hit that bell icon! (jk, this isn't YouTube)
-        </p>
-      </td>
-    </tr>
-    <tr>
-      <td colspan="2" style="background-color: #ff99ff;">
-        <blink>
-          <span style="font-size: 30px; color: #000000;">
-            🚧 SITE UNDER HEAVY CONSTRUCTION 🚧<br>
-            COME BACK LATER!!! (LIKE, MAYBE NEXT YEAR?)
-          </span>
-        </blink>
-        <br>
-        <img src="https://i.imgur.com/h5T2J82.gif" alt="under construction" width="80">
-        <img src="https://i.imgur.com/h5T2J82.gif" alt="under construction" width="80">
-        <img src="https://i.imgur.com/h5T2J82.gif" alt="under construction" width="80">
-        <p style="font-size: 24px; color: #ff00ff; font-weight: bold;">
-          <marquee behavior="alternate" scrollamount="8">
-            <span style="color: #00ff00;">STILL BROKEN!</span> <span style="color: #ffff00;">SORRY NOT SORRY!</span>
-          </marquee>
-        </p>
-      </td>
-    </tr>
-    <tr>
-      <td style="background-color: #ffff99;">
-        <p style="font-family: 'Arial Black', sans-serif; font-size: 18px; color: #008000;">
-          <span style="background-color: #ff0000; padding: 5px;">
-            <blink>NEW!!!</blink> SIGN MY GUESTBOOK!
-          </span>
-        </p>
-        <a href="#">✍️ Sign Here! ✍️</a>
-        <p style="font-size: 14px; color: #333;">
-          (No spam, pls. Or do, whatever. I'm not your mom.)
-        </p>
-      </td>
-      <td style="background-color: #99ffff;">
-        <p style="font-family: 'Verdana', sans-serif; font-size: 16px; color: #3333ff;">
-          <span style="background-color: #ff00ff; padding: 3px;">
-            BEST VIEWED WITH INTERNET EXPLORER 6!
-          </span>
-        </p>
-        <img src="https://placehold.co/80x80/0000FF/FFFFFF?text=IE6" alt="IE6 logo" style="border: 2px solid black;">
-        <p style="font-size: 12px; color: #000;">
-          (If you're using anything else, your aura is probably negative rizz.)
-        </p>
-      </td>
-    </tr>
-    <tr>
-      <td colspan="2" style="background-color: #ffccff;">
-        <p style="font-size: 20px; color: #ff0000; font-weight: bold;">
-          <blink>
-            <span style="font-size: 28px; color: #0000ff;">
-              FREE STUFF!!!
-            </span>
-          </blink>
-          <br>
-          (Coming Soon! Probably never, lol.)
-        </p>
-        <img src="https://placehold.co/100x100/FF00FF/FFFFFF?text=FREE!" alt="free stuff gif" style="border: 5px dashed yellow;">
-      </td>
-    </tr>
-  </table>
+    <div class="right-sidebar">
+      <p><b>UPDATES!</b></p>
+      <p>07/07/2025: Added more blinky things!</p>
+      <p>06/20/2000: Site launched! WOW!</p>
+      <img src="https://placehold.co/100x50/FF0000/FFFFFF?text=YOUR+AD" alt="ad banner" style="margin-top: 10px;">
+    </div>
+  </div>
 
   <div class="counter">
     VISITOR COUNT: <span id="hitCounter">999999999</span>
