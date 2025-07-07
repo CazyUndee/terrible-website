@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>My EPIC Website!!! (NOW EVEN MORE EPIC AND ACTUALLY WORKS!!!)</title>
+  <title>My EPIC Website!!! (NOW ACTUALLY DEPLOYABLE!!!)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
       background-color: #00ffff; /* blinding cyan */
@@ -9,10 +10,10 @@
       color: #ff0000; /* aggressive red */
       font-family: "Impact", sans-serif; /* super loud font */
       text-align: center;
-      cursor: url('https://i.imgur.com/gK2T3vQ.cur'), auto; /* custom cursor, if it works lol */
-      overflow-x: hidden; /* no horizontal scroll, but the content will be wild */
-      margin: 0; /* remove default body margin */
-      padding: 0; /* remove default body padding */
+      /* Removed custom cursor for max compatibility */
+      overflow-x: hidden;
+      margin: 0;
+      padding: 0;
     }
     marquee {
       font-size: 30px;
@@ -20,7 +21,7 @@
       font-weight: bold;
       text-shadow: 3px 3px #ff00ff; /* ugly shadow */
       margin: 10px 0;
-      display: block; /* ensure marquee takes full width */
+      display: block;
     }
     h1 {
       font-size: 60px;
@@ -28,7 +29,7 @@
       text-decoration: underline wavy #ff00ff; /* wavy underline */
       -webkit-text-stroke: 2px blue; /* blue outline */
       animation: blink 0.5s infinite alternate; /* faster blink */
-      margin: 20px 0; /* add some margin */
+      margin: 20px 0;
     }
     @keyframes blink {
       0% { opacity: 1; }
@@ -36,29 +37,29 @@
       100% { opacity: 1; }
     }
     table {
-      width: 95%; /* wider table */
+      width: 95%;
       margin: 20px auto;
-      border: 10px groove orange; /* chunky groove border */
-      background-color: #ccff00; /* puke green-yellow */
-      box-shadow: 10px 10px 5px #333; /* ugly shadow */
-      border-collapse: collapse; /* no gaps */
+      border: 10px groove orange;
+      background-color: #ccff00;
+      box-shadow: 10px 10px 5px #333;
+      border-collapse: collapse;
     }
     td {
       padding: 15px;
-      border: 5px double #0000ff; /* double blue border */
-      vertical-align: top; /* align everything to top */
+      border: 5px double #0000ff;
+      vertical-align: top;
       font-size: 20px;
-      color: #800080; /* purple */
+      color: #800080;
     }
     a {
-      color: #0000ff; /* blue link */
+      color: #0000ff;
       font-weight: bold;
-      text-decoration: none; /* no underline */
+      text-decoration: none;
       font-size: 22px;
     }
     a:hover {
-      color: #ff0000; /* red on hover */
-      text-decoration: line-through; /* strike-through on hover */
+      color: #ff0000;
+      text-decoration: line-through;
     }
     .gif-container {
       display: flex;
@@ -69,25 +70,24 @@
       margin-bottom: 20px;
     }
     .gif-container img {
-      border: 3px solid #ff00ff; /* magenta border */
+      border: 3px solid #ff00ff;
       padding: 2px;
-      background-color: #00ffff; /* cyan background */
+      background-color: #00ffff;
     }
     .counter {
       font-size: 28px;
-      color: #000000; /* black */
-      background-color: #ffffff; /* white background */
-      border: 5px inset gray; /* inset border */
+      color: #000000;
+      background-color: #ffffff;
+      border: 5px inset gray;
       padding: 5px 10px;
       display: inline-block;
       margin-top: 20px;
       margin-bottom: 20px;
     }
-    /* Custom blink effect for <blink> tag, because it's deprecated but we need it */
     blink {
       animation: customBlink 0.3s infinite;
       font-weight: bold;
-      color: #00ff00; /* neon green */
+      color: #00ff00;
     }
     @keyframes customBlink {
       0% { opacity: 1; }
@@ -108,8 +108,8 @@
     .sidebar {
       width: 150px;
       float: left;
-      background-color: #ff9900; /* orange */
-      border: 4px solid #0000ff; /* blue */
+      background-color: #ff9900;
+      border: 4px solid #0000ff;
       padding: 10px;
       margin-right: 20px;
       font-size: 14px;
@@ -118,8 +118,8 @@
     .right-sidebar {
       width: 150px;
       float: right;
-      background-color: #00ff99; /* light green */
-      border: 4px solid #ff0000; /* red */
+      background-color: #00ff99;
+      border: 4px solid #ff0000;
       padding: 10px;
       margin-left: 20px;
       font-size: 14px;
@@ -130,14 +130,14 @@
         justify-content: center;
         align-items: flex-start;
         width: 100%;
-        max-width: 1200px; /* constrain max width */
+        max-width: 1200px;
         margin: 0 auto;
         padding: 20px;
-        box-sizing: border-box; /* include padding in width */
+        box-sizing: border-box;
     }
     .main-content {
         flex-grow: 1;
-        max-width: calc(100% - 340px); /* adjust for sidebars */
+        max-width: calc(100% - 340px);
     }
     @media (max-width: 768px) {
         .sidebar, .right-sidebar {
@@ -155,11 +155,6 @@
         }
     }
   </style>
-  <!-- MIDI MUSIC ALERT! (COMMENTED OUT TO AVOID VERCEl 404s) -->
-  <!-- <audio autoplay loop>
-    <source src="https://www.midifiles.com/midi/pop/spice-girls/wannabe.mid" type="audio/midi" onerror="this.onerror=null;this.src='https://www.midifiles.com/midi/pop/rick-astley/never-gonna-give-you-up.mid';">
-    Your browser does not support the audio element.
-  </audio> -->
 </head>
 <body>
   <marquee behavior="alternate" direction="right" scrollamount="15">✨ YOU FOUND THE SECRET PAGE!!! ✨</marquee>
@@ -313,6 +308,9 @@
         audio.play().catch(e => console.log("Sound error:", e));
       }
     });
+
+    // Just a quick console log to see if JS runs
+    console.log("Site loaded, bruh.");
   </script>
 </body>
 </html>
